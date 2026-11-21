@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio website of Valguy" data-i18n-content="meta.description">
+    <link rel="icon" type="image/png" href="images/logo-light.jpg">
+    <title data-i18n="meta.title">Valguy | Portfolio</title>
+    <link rel="stylesheet" href="src/index.css">
+    <script type="module" src="src/index.js"></script>
+
+     
+</head>
+<body class="relative min-h-screen">
+
+    <div id="fixedBg" class="fixed-bg">
+        <video id="headerVideo" class="fixed-bg-video" data-theme="dark" autoplay muted loop playsinline disablepictureinpicture poster="/images/header-dark.jpg" aria-hidden="true">
+            <source src="/videos/header-dark.mp4" type="video/mp4">
+        </video>
+        <div id="bgOverlay" class="absolute inset-0 bg-black transition-opacity duration-75" style="opacity: 0.4;"></div>
+    </div>
+
+    <header id="navbar" class="site-header at-top">
+        <a class="site-brand" href="#hero" aria-label="Valguy home" data-i18n-aria-label="header.brandHomeLabel">
+            <span class="brand-logo" aria-hidden="true">
+                <span class="brand-logo-fallback">V</span>
+                <img id="brandLogoImage" src="/images/logo-dark.jpg" alt="Valguy logo" data-i18n-alt="header.logoAlt" width="32" height="32">
+            </span>
+            <span class="brand-copy">
+                <strong>Valguy</strong>
+                <span data-i18n="header.subtitle">Infosec Student | Can Tho University</span>
+            </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Main navigation" data-i18n-aria-label="header.navigationLabel">
+            <a href="#hero" data-i18n="header.navigation.home">Home</a>
+            <a href="#about-me" data-i18n="header.navigation.about">About Me</a>
+            <a href="#journey" data-i18n="header.navigation.journey">Journey</a>
+            <a href="#projects" data-i18n="header.navigation.projects">Projects</a>
+            <a href="#contact" data-i18n="header.navigation.contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="header-control language-control" type="button" aria-label="Switch language to Vietnamese" data-selected="EN">
+                <span class="language-current">EN</span>
+            </button>
+            <button class="header-control theme-control" type="button" aria-label="Switch theme" aria-pressed="false" data-selected="dark">
+                <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.985 12.486A9 9 0 1 1 11.514 3.015a7 7 0 0 0 9.471 9.471Z"></path>
+                </svg>
+                <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+                </svg>
+            </button>
+            <button class="header-control video-control" type="button" aria-label="Pause wallpaper video" aria-pressed="true" data-selected="video">
+                <svg class="wallpaper-icon wallpaper-icon-pause" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M8 5v14M16 5v14"></path>
+                </svg>
+                <svg class="wallpaper-icon wallpaper-icon-play" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <path d="m8 5 12 7-12 7V5Z"></path>
+                </svg>
+            </button>
+            <button class="header-control music-control" type="button" aria-label="Play background music" aria-pressed="false" data-selected="muted">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18V5l12-2v13"></path>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <circle cx="18" cy="16" r="3"></circle>
+                    <path class="music-mute-slash" d="m4 4 16 16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <audio id="backgroundMusic" preload="none" loop muted hidden>
+        <source src="/OST.mp3" type='audio/mp4; codecs="mp4a.40.2"'>
+    </audio>
+
+    <!-- Header -->
+    <section id="hero" class="hero-section">
+        <div class="hero-layout">
+            <div class="hero-content">
+                <p class="hero-eyebrow"><span aria-hidden="true"></span> <span data-i18n="hero.role">Infosec Student</span> <span class="hero-eyebrow-divider" aria-hidden="true">/</span> <span data-i18n="hero.university">Can Tho University</span></p>
+                <h1 class="hero-title">
+                    <span class="hero-title-intro" data-i18n="hero.greeting">Hi, I’m</span>
+                    <span class="hero-title-name"><span data-i18n="hero.name">Valguy !</span><span class="hero-title-period"></span></span>
+                </h1>
+                <p class="hero-description" data-i18n="hero.tagline">
+                    Tech Learner | System Explorer | Code Builder
+                </p>
+                <div class="hero-actions">
+                    <a class="hero-button hero-button-primary" href="https://github.com/valguypmt" target="_blank" rel="noopener noreferrer">
+                        <span data-i18n="hero.explore">Explore my work</span>
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                    <a class="hero-button hero-button-secondary" href="#contact" data-i18n="hero.contact">Get in touch!</a>
+                </div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="about-me" class="about-me-section" aria-labelledby="about-me-title">
+      <div class="about-me-panel">
+        <div class="about-me-content">
+          <p class="about-me-eyebrow" data-i18n="about.eyebrow">A LITTLE ABOUT ME</p>
+          <h2 id="about-me-title" class="about-me-title"><span class="about-me-title-first" data-i18n="about.titleFirst">A Life Drifter</span><br><span data-i18n="about.titleSecond">A Codes Builder</span></h2>
+          <p class="about-me-copy" data-i18n="about.copy">
+            My knowledge and skills are limited, but I am always eager to learn and explore new things. I enjoy solving problems, breaking systems, and learning from my mistakes. My goal is to become a skilled professional and contribute to the development of the technology industry!
+          </p>
+        </div>
+        <dl class="about-me-facts" aria-label="Personal details" data-i18n-aria-label="about.factsLabel">
+          <div class="about-me-fact">
+            <dt data-i18n="about.facts.nameLabel">IRL name</dt>
+            <dd data-i18n="about.facts.nameValue">Pham Minh Thong</dd>
+          </div>
+          <div class="about-me-fact">
+            <dt data-i18n="about.facts.ageLabel">Age</dt>
+            <dd data-i18n="about.facts.ageValue">18 years old</dd>
+          </div>
+          <div class="about-me-fact">
+            <dt data-i18n="about.facts.majorLabel">Major</dt>
+            <dd data-i18n="about.facts.majorValue">Information Security</dd>
+          </div>
+          <div class="about-me-fact">
+            <dt data-i18n="about.facts.educationLabel">Education</dt>
+            <dd data-i18n="about.facts.educationValue">Can Tho University</dd>
+          </div>
+          <div class="about-me-fact">
+            <dt data-i18n="about.facts.locationLabel">Location</dt>
+            <dd data-i18n="about.facts.locationValue">Can Tho, Vietnam</dd>
+          </div>
+          <div class="about-me-fact">
+            <dt data-i18n="about.facts.interestsLabel">Interests</dt>
+            <dd data-i18n="about.facts.interestsValue">Infosec · Web · Sysadmin</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="journey" class="journey-section" aria-labelledby="journey-title">
+      <div class="journey-panel">
+        <div class="journey-heading">
+          <div>
+            <h2 id="journey-title" data-i18n="journey.title">MY LIFE JOURNEY</h2>
+            <p class="journey-eyebrow" data-i18n="journey.eyebrow">Look back how far I've come</p>
+          </div>
+            <button class="journey-caption" type="button" aria-label="Replay journey animation" data-i18n="journey.replay" data-i18n-aria-label="journey.replayLabel">Still moving forward!</button>
+        </div>
+          <div class="journey-track-scroll" role="region" aria-label="Journey timeline, scroll horizontally for more milestones" data-i18n-aria-label="journey.timelineLabel" tabindex="0">
+          <ol class="journey-track">
+            <li class="journey-milestone">
+              <span class="journey-year" data-i18n="journey.milestones.0.year">2014–2018</span>
+              <h3 data-i18n="journey.milestones.0.title">Elementary School</h3>
+              <p data-i18n="journey.milestones.0.description">Nguyen Khuyen Elementary School</p>
+            </li>
+            <li class="journey-milestone">
+              <span class="journey-year" data-i18n="journey.milestones.1.year">2019-2025</span>
+              <h3 data-i18n="journey.milestones.1.title">Middle | High School</h3>
+              <p data-i18n="journey.milestones.1.description">Pedagogical Practice School - An Giang University</p>
+            </li>
+            <li class="journey-milestone">
+              <span class="journey-year" data-i18n="journey.milestones.2.year">2026</span>
+              <h3 data-i18n="journey.milestones.2.title">University</h3>
+              <p data-i18n="journey.milestones.2.description">College of Information Technology - Can Tho University</p>
+            </li>
+          </ol>          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects-section" aria-labelledby="projects-title">
+      <div class="projects-panel">
+        <div class="projects-heading">
+          <div>
+            <h2 id="projects-title" data-i18n="projects.title">MY PROJECTS</h2>
+            <p class="projects-eyebrow" data-i18n="projects.eyebrow">Experience is the best teacher</p>
+          </div>
+          <a class="projects-all-link" href="https://github.com/valguypmt" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="projects.more">More on GitHub</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7M7 7h10v10"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="projects-grid">
+
+            <!-- Project 1-->
+          <article class="project-card">
+            <button class="project-card-open" type="button" aria-haspopup="dialog" aria-label="View details for SullivanServer" data-project-key="sullivanserver" data-project-image="/images/projects/sullivanserver.jpg" data-project-repository="https://github.com/valguypmt/SullivanServer" data-project-deployment="https://sullivanserver.vercel.app/">
+              <span class="project-card-banner" aria-hidden="true">
+                <img class="project-card-image" src="/images/projects/sullivanserver.jpg" alt="" loading="lazy" decoding="async">
+              </span>
+              <span class="project-card-divider" aria-hidden="true"></span>
+              <span class="project-card-title" role="heading" aria-level="3">Sullivan Server Website</span>
+              <span class="project-card-description">Complete web portal and ecosystem built for our simple Minecraft community servers.</span>
+              <span class="project-card-tech" role="list" aria-label="">
+                <span role="listitem">HTML5</span>
+                <span role="listitem">CSS3</span>
+                <span role="listitem">JavaScript</span>
+              </span>
+            </button>
+            <div class="project-card-links">
+              <a class="project-card-link project-card-link-repository" href="https://github.com/valguypmt/SullivanServer" target="_blank" rel="noopener noreferrer">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.61-5.47 5.91.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"></path>
+                </svg>
+                <span data-i18n="projects.viewRepository">View repository</span>
+              </a>
+              <a class="project-card-link project-card-link-deployment" href="https://sullivanserver.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path>
+                </svg>
+                <span data-i18n="projects.viewDeployment">View deployment</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2-->
+          <article class="project-card">
+            <button class="project-card-open" type="button" aria-haspopup="dialog" aria-label="View details for Student Account Portal" data-project-key="studentPortal" data-project-image="/images/projects/CT005D05.jpg" data-project-repository="https://github.com/valguypmt/Project-26-27HK1-CT005D05" data-project-deployment="https://valguypmt.github.io/Project-26-27HK1-CT005D05">
+              <span class="project-card-banner" aria-hidden="true">
+                <img class="project-card-image" src="/images/projects/CT005D05.jpg" alt="" loading="lazy" decoding="async">
+              </span>
+              <span class="project-card-divider" aria-hidden="true"></span>
+              <span class="project-card-title" role="heading" aria-level="3">Student Account Portal</span>
+              <span class="project-card-description">Online Student Account Management &amp; Verification Portal built with HTML/CSS/JS and Supabase Backend for CTU CT005D05 course.
+
+</span>
+              <span class="project-card-tech" role="list" aria-label="">
+                <span role="listitem">HTML5</span>
+                <span role="listitem">CSS3</span>
+                <span role="listitem">JavaScript</span>
+                <span role="listitem">Supabase</span>
+              </span>
+            </button>
+            <div class="project-card-links">
+              <a class="project-card-link project-card-link-repository" href="https://github.com/valguypmt/Project-26-27HK1-CT005D05" target="_blank" rel="noopener noreferrer">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.61-5.47 5.91.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"></path>
+                </svg>
+                <span data-i18n="projects.viewRepository">View repository</span>
+              </a>
+              <a class="project-card-link project-card-link-deployment" href="https://valguypmt.github.io/Project-26-27HK1-CT005D05" target="_blank" rel="noopener noreferrer">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path>
+                </svg>
+                <span data-i18n="projects.viewDeployment">View deployment</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3-->
+          <article class="project-card">
+            <button class="project-card-open" type="button" aria-haspopup="dialog" aria-label="View details for Valguypmt Portfolio" data-project-key="portfolio" data-project-image="/images/projects/portfolio.jpg" data-project-repository="https://github.com/valguypmt/Valguypmt-Portfolio" data-project-deployment="/">
+              <span class="project-card-banner" aria-hidden="true">
+                <img class="project-card-image" src="/images/projects/portfolio.jpg" alt="" loading="lazy" decoding="async">
+              </span>
+              <span class="project-card-divider" aria-hidden="true"></span>
+              <span class="project-card-title" role="heading" aria-level="3">My Personal Portfolio</span>
+              <span class="project-card-description">My personal portfolio website, featuring information about me, my journey, projects, and ways to get in touch!</span>
+              <span class="project-card-tech" role="list" aria-label="">
+                <span role="listitem">HTML5</span>
+                <span role="listitem">CSS3</span>
+                <span role="listitem">JavaScript</span>
+                <span role="listitem">Vite</span>
+                <span role="listitem">Three.js</span>
+              </span>
+            </button>
+            <div class="project-card-links">
+              <a class="project-card-link project-card-link-repository" href="https://github.com/valguypmt/Valguypmt-Portfolio" target="_blank" rel="noopener noreferrer">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.61-5.47 5.91.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"></path>
+                </svg>
+                <span data-i18n="projects.viewRepository">View repository</span>
+              </a>
+              <a class="project-card-link project-card-link-deployment" href="/" target="_blank" rel="noopener noreferrer">
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path>
+                </svg>
+                <span data-i18n="projects.viewDeployment">View deployment</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <div class="contact-panel">
+        <div class="contact-heading">
+          <h2 id="contact-title" data-i18n="contact.title">CONTACT ME</h2>
+          <p class="contact-eyebrow" data-i18n="contact.intro">Have a question or want to work together? Send me a message or find me online. Let's make something happen!</p>
+          <p></p>
+        </div>
+        <div class="contact-layout">
+          <form class="contact-form" data-recipient="valguypmt@gmail.com">
+            <div class="contact-fields">
+              <label class="contact-field">
+                <span data-i18n="contact.form.name">Name</span>
+                <input type="text" name="name" autocomplete="name" placeholder="Your name" data-i18n-placeholder="contact.form.namePlaceholder" required>
+              </label>
+              <label class="contact-field">
+                <span data-i18n="contact.form.email">Email</span>
+                <input type="email" name="email" autocomplete="email" placeholder="you@example.com" data-i18n-placeholder="contact.form.emailPlaceholder" required>
+              </label>
+              <label class="contact-field contact-field-wide">
+                <span data-i18n="contact.form.subject">Subject</span>
+                <input type="text" name="subject" placeholder="What would you like to talk about?" data-i18n-placeholder="contact.form.subjectPlaceholder" required>
+              </label>
+              <label class="contact-field contact-field-wide">
+                <span data-i18n="contact.form.message">Message</span>
+                <textarea name="message" rows="5" placeholder="Write your message here..." data-i18n-placeholder="contact.form.messagePlaceholder" required></textarea>
+              </label>
+            </div>
+            <div class="contact-form-footer">
+              <button class="contact-submit" type="submit">
+                <span data-i18n="contact.form.submit">Send message</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            </div>
+          </form>
+
+          <aside class="contact-links" aria-label="Find me online" data-i18n-aria-label="contact.socialLabel">
+            <h3 data-i18n="contact.socialHeading">MORE WAYS TO CONNECT</h3>
+            <div class="contact-social-list">
+              <a class="contact-social-link" href="https://www.facebook.com/valguypmt" target="_blank" rel="noopener noreferrer">
+                <span class="contact-social-icon contact-icon-facebook" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.4 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.7V21h3.7Z"></path></svg>
+                </span>
+                <span class="contact-social-copy"><strong data-i18n="contact.social.facebook.name">Facebook</strong><small data-i18n="contact.social.facebook.description">Visit my profile</small></span>
+                <svg class="contact-social-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+              </a>
+              <a class="contact-social-link" href="https://discord.com/users/892308773899739147" target="_blank" rel="noopener noreferrer">
+                <span class="contact-social-icon contact-icon-discord" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.7 5.3A18.2 18.2 0 0 0 15.2 4l-.6 1.2a16.8 16.8 0 0 0-5.2 0L8.8 4a18.2 18.2 0 0 0-4.5 1.3C1.5 9.5.7 13.6 1.1 17.7a18.2 18.2 0 0 0 5.5 2.8l1.2-2a11.8 11.8 0 0 1-1.9-.9l.5-.4a13 13 0 0 0 11.2 0l.5.4a11.8 11.8 0 0 1-1.9.9l1.2 2a18.2 18.2 0 0 0 5.5-2.8c.5-4.8-.8-8.9-3.2-12.4ZM8.7 14.8c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 .9 2 2.2-.9 2.2-2 2.2Zm6.6 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 .9 2 2.2-.9 2.2-2 2.2Z"></path></svg>
+                </span>
+                <span class="contact-social-copy"><strong data-i18n="contact.social.discord.name">Discord</strong><small data-i18n="contact.social.discord.description">View my profile</small></span>
+                <svg class="contact-social-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+              </a>
+              <a class="contact-social-link" href="https://zalo.me/0911252707" target="_blank" rel="noopener noreferrer">
+                <span class="contact-social-icon contact-icon-zalo" aria-hidden="true">Za</span>
+                <span class="contact-social-copy"><strong data-i18n="contact.social.zalo.name">Zalo</strong><small data-i18n="contact.social.zalo.description">Message me on Zalo</small></span>
+                <svg class="contact-social-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+              </a>
+              <a class="contact-social-link" href="mailto:valguypmt@gmail.com">
+                <span class="contact-social-icon contact-icon-email" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
+                </span>
+                <span class="contact-social-copy"><strong data-i18n="contact.social.email.name">Email</strong><small data-i18n="contact.social.email.description">valguypmt@gmail.com</small></span>
+                <svg class="contact-social-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+              </a>
+              <a class="contact-social-link" href="https://www.youtube.com/@ValguyYT" target="_blank" rel="noopener noreferrer">
+                <span class="contact-social-icon contact-icon-youtube" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.1a3 3 0 0 0-2.1-2.1C19 4.5 12 4.5 12 4.5s-7 0-8.9.5A3 3 0 0 0 1 7.1 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.9 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.9 31 31 0 0 0-.5-4.9ZM9.8 15.8V8.2l6.5 3.8-6.5 3.8Z"></path></svg>
+                </span>
+                <span class="contact-social-copy"><strong data-i18n="contact.social.youtube.name">YouTube</strong><small data-i18n="contact.social.youtube.description">@ValguyYT</small></span>
+                <svg class="contact-social-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"></path></svg>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details Dialog -->
+    <dialog id="project-dialog" class="project-dialog" aria-labelledby="project-dialog-title" aria-describedby="project-dialog-description">
+      <div class="project-dialog-surface">
+        <div class="project-dialog-banner">
+          <img class="project-dialog-image" alt="" decoding="async">
+        </div>
+        <button class="project-dialog-close" type="button" aria-label="Close project details">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="m6 6 12 12M18 6 6 18"></path>
+          </svg>
+        </button>
+        <div class="project-dialog-content">
+          <p class="project-dialog-category"></p>
+          <h2 id="project-dialog-title"></h2>
+          <p id="project-dialog-description" class="project-dialog-description"></p>
+          <div class="project-dialog-divider" aria-hidden="true"></div>
+          <section class="project-dialog-technologies" aria-labelledby="project-dialog-tech-title">
+            <ul class="project-dialog-tech"></ul>
+          </section>
+          <div class="project-dialog-actions" role="group" aria-label="Project links">
+            <a class="project-dialog-action project-dialog-repository" href="#" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.61-5.47 5.91.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .5Z"></path>
+              </svg>
+              <span data-i18n="projects.viewRepository">View repository</span>
+            </a>
+            <a class="project-dialog-action project-dialog-deployment" href="#" target="_blank" rel="noopener noreferrer" hidden>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path>
+              </svg>
+              <span data-i18n="projects.viewDeployment">View deployment</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    
+<!-- Transition Container -->
+<div class="relative z-20 bg-black rounded-t-[40px] pt-16 shadow-[0_0_80px_rgba(0,0,0,0.95)] flex flex-col items-center">
+
+
+
+    <footer class="w-full">
+      <div class="site-footer footer-thanks">
+        <p>© 2026 Valguy. All rights reserved.</p>
+      </div>
+    </footer>
+</div>
+</body>
+
+
+</html>

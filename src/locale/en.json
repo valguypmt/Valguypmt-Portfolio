@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "title": "Valguy | Portfolio",
+    "description": "Portfolio website of Valguy"
+  },
+  "header": {
+    "brandHomeLabel": "Valguy home",
+    "logoAlt": "Valguy logo",
+    "subtitle": "Infosec Student | Can Tho University",
+    "navigationLabel": "Main navigation",
+    "navigation": {
+      "home": "Home",
+      "about": "About Me",
+      "journey": "Journey",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "language": {
+      "toVietnamese": "Switch language to Vietnamese",
+      "toEnglish": "Switch language to English"
+    },
+    "theme": {
+      "toDark": "Switch to dark mode",
+      "toLight": "Switch to light mode"
+    },
+    "wallpaper": {
+      "play": "Play wallpaper video",
+      "pause": "Pause wallpaper video"
+    },
+    "music": {
+      "play": "Play background music",
+      "mute": "Mute background music",
+      "unavailable": "Background music could not be played"
+    }
+  },
+  "hero": {
+    "role": "Infosec Student",
+    "university": "Can Tho University",
+    "greeting": "Hi, I’m",
+    "name": "Valguy !",
+    "tagline": "Tech Learner | System Explorer | Code Builder",
+    "explore": "Explore my work",
+    "contact": "Get in touch!"
+  },
+  "about": {
+    "eyebrow": "A LITTLE ABOUT ME",
+    "titleFirst": "A Life Drifter",
+    "titleSecond": "A Codes Builder",
+    "copy": "My knowledge and skills are limited, but I am always eager to learn and explore new things. I enjoy solving problems, breaking systems, and learning from my mistakes. My goal is to become a skilled professional and contribute to the development of the technology industry!",
+    "factsLabel": "Personal details",
+    "facts": {
+      "nameLabel": "IRL name",
+      "nameValue": "Pham Minh Thong",
+      "ageLabel": "Age",
+      "ageValue": "18 years old",
+      "majorLabel": "Major",
+      "majorValue": "Information Security",
+      "educationLabel": "Education",
+      "educationValue": "Can Tho University",
+      "locationLabel": "Location",
+      "locationValue": "Can Tho, Vietnam",
+      "interestsLabel": "Interests",
+      "interestsValue": "Infosec · Web · Sysadmin"
+    }
+  },
+  "journey": {
+    "title": "MY LIFE JOURNEY",
+    "eyebrow": "Look back how far I've come",
+    "replay": "Still moving forward!",
+    "replayLabel": "Replay journey animation",
+    "timelineLabel": "Journey timeline, scroll horizontally for more milestones",
+    "milestones": [
+      {
+        "year": "2014–2018",
+        "title": "Elementary School",
+        "description": "Nguyen Khuyen Elementary School"
+      },
+      {
+        "year": "2019-2025",
+        "title": "Middle | High School",
+        "description": "Pedagogical Practice School - An Giang University"
+      },
+      {
+        "year": "2026",
+        "title": "University",
+        "description": "College of Information Technology - Can Tho University"
+      }
+    ]
+  },
+  "projects": {
+    "title": "MY PROJECTS",
+    "eyebrow": "Experience is the best teacher",
+    "more": "More on GitHub",
+    "category": "Website",
+    "technologiesLabel": "Technologies used",
+    "linksLabel": "Project links",
+    "closeDetailsLabel": "Close project details",
+    "viewDetailsTemplate": "View details for {title}",
+    "viewRepository": "View repository",
+    "viewDeployment": "View deployment",
+    "items": {
+      "sullivanserver": {
+        "dialogTitle": "SullivanServer",
+        "cardTitle": "Sullivan Server Website",
+        "description": "Complete web portal and ecosystem built for our simple Minecraft community servers.",
+        "technologies": ["HTML5", "CSS3", "JavaScript"]
+      },
+      "studentPortal": {
+        "dialogTitle": "Student Account Portal",
+        "cardTitle": "Student Account Portal",
+        "description": "Online Student Account Management & Verification Portal built with HTML/CSS/JS and Supabase Backend for CTU CT005D05 course.",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "Supabase"]
+      },
+      "portfolio": {
+        "dialogTitle": "Valguypmt Portfolio",
+        "cardTitle": "My Personal Portfolio",
+        "description": "My personal portfolio website, featuring information about me, my journey, projects, and ways to get in touch!",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "Vite", "Three.js"]
+      }
+    }
+  },
+  "contact": {
+    "title": "CONTACT ME",
+    "intro": "Have a question or want to work together? Send me a message or find me online. Let's make something happen!",
+    "socialLabel": "Find me online",
+    "socialHeading": "MORE WAYS TO CONNECT",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "What would you like to talk about?",
+      "message": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "submit": "Send message",
+      "emailTemplate": "Name: {name}\nEmail: {email}\n\n{message}"
+    },
+    "social": {
+      "facebook": {
+        "name": "Facebook",
+        "description": "Visit my profile"
+      },
+      "discord": {
+        "name": "Discord",
+        "description": "View my profile"
+      },
+      "zalo": {
+        "name": "Zalo",
+        "description": "Message me on Zalo"
+      },
+      "email": {
+        "name": "Email",
+        "description": "valguypmt@gmail.com"
+      },
+      "youtube": {
+        "name": "YouTube",
+        "description": "@ValguyYT"
+      }
+    }
+  },
+  "footer": {
+    "thankYou": "© 2026 Valguy. All rights reserved."
+  }
+}

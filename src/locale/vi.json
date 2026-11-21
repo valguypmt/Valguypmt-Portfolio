@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "title": "Valguy | Hồ sơ cá nhân",
+    "description": "Trang hồ sơ của Valguy"
+  },
+  "header": {
+    "brandHomeLabel": "Trang chủ",
+    "logoAlt": "Logo Valguy",
+    "subtitle": "An toàn thông tin | Đại học Cần Thơ",
+    "navigationLabel": "Điều hướng chính",
+    "navigation": {
+      "home": "Trang chủ",
+      "about": "Giới thiệu",
+      "journey": "Hành trình",
+      "projects": "Dự án",
+      "contact": "Liên hệ"
+    },
+    "language": {
+      "toVietnamese": "Chuyển ngôn ngữ sang tiếng Việt",
+      "toEnglish": "Chuyển ngôn ngữ sang tiếng Anh"
+    },
+    "theme": {
+      "toDark": "Chuyển sang giao diện tối",
+      "toLight": "Chuyển sang giao diện sáng"
+    },
+    "wallpaper": {
+      "play": "Phát video nền",
+      "pause": "Tạm dừng video nền"
+    },
+    "music": {
+      "play": "Phát nhạc nền",
+      "mute": "Tắt nhạc nền",
+      "unavailable": "Không thể phát nhạc nền"
+    }
+  },
+  "hero": {
+    "role": "An toàn thông tin",
+    "university": "Đại học Cần Thơ",
+    "greeting": "Xin chào, mình là",
+    "name": "Valguy !",
+    "tagline": "Học hỏi công nghệ | Khám phá hệ thống | Xây dựng sản phẩm",
+    "explore": "Khám phá các dự án khác",
+    "contact": "Liên hệ với mình!"
+  },
+  "about": {
+    "eyebrow": "GIỚI THIỆU VỀ MÌNH",
+    "titleFirst": "Khám phá cuộc sống",
+    "titleSecond": "Học hỏi công nghệ",
+    "copy": "Dù kiến thức và kỹ năng của mình còn hạn chế, nhưng mình vẫn luôn muốn học hỏi và khám phá những điều mới. Mình thích giải quyết các vấn đề thực tế, tìm hiểu cách hệ thống hoạt động và học hỏi từ những sai lầm bản thân. Mục tiêu của mình là trở thành một chuyên gia trong ngành và đóng góp thật nhiềucho ngành công nghệ và cộng đồng!",
+    "factsLabel": "Thông tin cá nhân",
+    "facts": {
+      "nameLabel": "Tên thật",
+      "nameValue": "Phạm Minh Thông",
+      "ageLabel": "Tuổi",
+      "ageValue": "18 tuổi",
+      "majorLabel": "Chuyên ngành",
+      "majorValue": "An toàn thông tin",
+      "educationLabel": "Học vấn",
+      "educationValue": "Đại học Cần Thơ",
+      "locationLabel": "Địa điểm",
+      "locationValue": "Cần Thơ, Việt Nam",
+      "interestsLabel": "Sở thích",
+      "interestsValue": "InfoSec · Web · Sysadmin"
+    }
+  },
+  "journey": {
+    "title": "HÀNH TRÌNH BẢN THÂN",
+    "eyebrow": "Nhìn lại chặng đường đã đi qua",
+    "replay": "Vẫn đang tiến về phía trước!",
+    "replayLabel": "Phát lại hoạt ảnh hành trình",
+    "timelineLabel": "Dòng thời gian hành trình, cuộn ngang để xem thêm các cột mốc",
+    "milestones": [
+      {
+        "year": "2014–2018",
+        "title": "Tiểu học",
+        "description": "Trường Tiểu học Nguyễn Khuyến"
+      },
+      {
+        "year": "2019–2025",
+        "title": "Trung học cơ sở | Trung học phổ thông",
+        "description": "Trường PTTH Sư phạm - Đại học An Giang"
+      },
+      {
+        "year": "2026",
+        "title": "Đại học",
+        "description": "Trường Công nghệ Thông tin - Đại học Cần Thơ"
+      }
+    ]
+  },
+  "projects": {
+    "title": "DỰ ÁN CÁ NHÂN",
+    "eyebrow": "Trải nghiệm là cách học tốt nhất",
+    "more": "Xem thêm trên GitHub",
+    "category": "Website",
+    "technologiesLabel": "Technologies used",
+    "linksLabel": "Project links",
+    "closeDetailsLabel": "Close project details",
+    "viewDetailsTemplate": "View details for {title}",
+    "viewRepository": "Xem mã nguồn",
+    "viewDeployment": "Xem trang trực tuyến",
+    "items": {
+      "sullivanserver": {
+        "dialogTitle": "SullivanServer",
+        "cardTitle": "Sullivan Server Website",
+        "description": "Complete web portal and ecosystem built for our simple Minecraft community servers.",
+        "technologies": ["HTML5", "CSS3", "JavaScript"]
+      },
+      "studentPortal": {
+        "dialogTitle": "Student Account Portal",
+        "cardTitle": "Student Account Portal",
+        "description": "Online Student Account Management & Verification Portal built with HTML/CSS/JS and Supabase Backend for CTU CT005D05 course.",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "Supabase"]
+      },
+      "portfolio": {
+        "dialogTitle": "Valguypmt Portfolio",
+        "cardTitle": "My Personal Portfolio",
+        "description": "My personal portfolio website, featuring information about me, my journey, projects, and ways to get in touch!",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "Vite", "Three.js"]
+      }
+    }
+  },
+  "contact": {
+    "title": "LIÊN HỆ VỚI MÌNH",
+    "intro": "Bạn có câu hỏi hoặc muốn hợp tác? Hãy gửi tin nhắn hoặc kết nối với mình nhé!",
+    "socialLabel": "Tìm mình trên mạng",
+    "socialHeading": "KẾT NỐI THÊM VỚI MÌNH",
+    "form": {
+      "name": "Họ tên",
+      "namePlaceholder": "Tên của bạn",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "subject": "Chủ đề",
+      "subjectPlaceholder": "Bạn muốn trao đổi điều gì?",
+      "message": "Tin nhắn",
+      "messagePlaceholder": "Viết tin nhắn tại đây...",
+      "submit": "Gửi tin nhắn",
+      "emailTemplate": "Họ tên: {name}\nEmail: {email}\n\n{message}"
+    },
+    "social": {
+      "facebook": {
+        "name": "Facebook",
+        "description": "Xem hồ sơ của mình"
+      },
+      "discord": {
+        "name": "Discord",
+        "description": "Xem hồ sơ của mình"
+      },
+      "zalo": {
+        "name": "Zalo",
+        "description": "Liên hệ qua Zalo"
+      },
+      "email": {
+        "name": "Email",
+        "description": "valguypmt@gmail.com"
+      },
+      "youtube": {
+        "name": "YouTube",
+        "description": "@ValguyYT"
+      }
+    }
+  },
+  "footer": {
+    "thankYou": "© 2026 Valguy. Bản quyền được bảo lưu."
+  }
+}
