@@ -21,6 +21,7 @@ const bgOverlay = document.getElementById('bgOverlay');
 const navbar = document.getElementById('navbar');
 const headerVideo = document.getElementById('headerVideo');
 const brandLogoImage = document.getElementById('brandLogoImage');
+const faviconLink = document.getElementById('siteFavicon');
 const fixedBg = document.getElementById('fixedBg');
 const videoControl = document.querySelector('.video-control');
 const musicControl = document.querySelector('.music-control');
@@ -461,6 +462,7 @@ const applyWallpaperMode = (mode) => {
 const applyHeaderVideoTheme = (theme) => {
     brandLogoImage.hidden = false;
     brandLogoImage.src = `/images/logo-${theme}.jpg`;
+    faviconLink.href = brandLogoImage.src;
 
     if (headerVideo.dataset.theme === theme) {
         return;

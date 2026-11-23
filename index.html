@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio website of Valguy" data-i18n-content="meta.description">
-    <link rel="icon" type="image/png" href="images/logo-light.jpg">
+    <link id="siteFavicon" rel="icon" type="image/jpeg" href="/images/logo-dark.jpg">
     <title data-i18n="meta.title">Valguy | Portfolio</title>
     <link rel="stylesheet" href="src/index.css">
     <script type="module" src="src/index.js"></script>
 
      
 </head>
-<body class="relative min-h-screen">
+<body>
 
     <div id="fixedBg" class="fixed-bg">
         <video id="headerVideo" class="fixed-bg-video" data-theme="dark" autoplay muted loop playsinline disablepictureinpicture poster="/images/header-dark.jpg" aria-hidden="true">
             <source src="/videos/header-dark.mp4" type="video/mp4">
         </video>
-        <div id="bgOverlay" class="absolute inset-0 bg-black transition-opacity duration-75" style="opacity: 0.4;"></div>
+        <div id="bgOverlay" style="opacity: 0.4;"></div>
     </div>
 
     <header id="navbar" class="site-header at-top">
@@ -413,11 +413,11 @@
 
     
 <!-- Transition Container -->
-<div class="relative z-20 bg-black rounded-t-[40px] pt-16 shadow-[0_0_80px_rgba(0,0,0,0.95)] flex flex-col items-center">
+<div class="footer-shell">
 
 
 
-    <footer class="w-full">
+    <footer>
       <div class="site-footer footer-thanks">
         <p>© 2026 Valguy. All rights reserved.</p>
       </div>
