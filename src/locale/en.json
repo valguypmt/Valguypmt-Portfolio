@@ -5,6 +5,7 @@
   },
   "header": {
     "brandHomeLabel": "Valguy home",
+    "backToTop": "Back to top",
     "logoAlt": "Valguy logo",
     "subtitle": "Infosec Student | Can Tho University",
     "navigationLabel": "Main navigation",
@@ -30,7 +31,10 @@
     "music": {
       "play": "Play background music",
       "mute": "Mute background music",
-      "unavailable": "Background music could not be played"
+      "unavailable": "Background music could not be played",
+      "volume": "OST music volume",
+      "volumeLabel": "Background music volume",
+      "credit": "Track credits"
     }
   },
   "hero": {

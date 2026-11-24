@@ -5,6 +5,7 @@
   },
   "header": {
     "brandHomeLabel": "Trang chủ",
+    "backToTop": "Lên đầu trang",
     "logoAlt": "Logo Valguy",
     "subtitle": "An toàn thông tin | Đại học Cần Thơ",
     "navigationLabel": "Điều hướng chính",
@@ -30,7 +31,10 @@
     "music": {
       "play": "Phát nhạc nền",
       "mute": "Tắt nhạc nền",
-      "unavailable": "Không thể phát nhạc nền"
+      "unavailable": "Không thể phát nhạc nền",
+      "volume": "Âm lượng nhạc nền",
+      "volumeLabel": "Âm lượng nhạc nền",
+      "credit": "Thông tin nhạc nền"
     }
   },
   "hero": {
@@ -39,14 +43,14 @@
     "greeting": "Xin chào, mình là",
     "name": "Valguy !",
     "tagline": "Học hỏi công nghệ | Khám phá hệ thống | Xây dựng sản phẩm",
-    "explore": "Khám phá các dự án khác",
+    "explore": "Các dự án cá nhân",
     "contact": "Liên hệ với mình!"
   },
   "about": {
     "eyebrow": "GIỚI THIỆU VỀ MÌNH",
     "titleFirst": "Khám phá cuộc sống",
     "titleSecond": "Học hỏi công nghệ",
-    "copy": "Dù kiến thức và kỹ năng của mình còn hạn chế, nhưng mình vẫn luôn muốn học hỏi và khám phá những điều mới. Mình thích giải quyết các vấn đề thực tế, tìm hiểu cách hệ thống hoạt động và học hỏi từ những sai lầm bản thân. Mục tiêu của mình là trở thành một chuyên gia trong ngành và đóng góp thật nhiềucho ngành công nghệ và cộng đồng!",
+    "copy": "Dù kiến thức và kỹ năng của mình còn hạn chế, nhưng mình vẫn luôn muốn học hỏi và khám phá những điều mới. Mình thích giải quyết các vấn đề thực tế, tìm hiểu cách hệ thống hoạt động và học hỏi từ những sai lầm bản thân. Mục tiêu của mình là trở thành một chuyên gia trong ngành và đóng góp thật nhiều cho ngành công nghệ và cộng đồng!",
     "factsLabel": "Thông tin cá nhân",
     "facts": {
       "nameLabel": "Tên thật",

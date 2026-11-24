@@ -13,7 +13,7 @@ type LogoPointDef = {
   z: number
 }
 
-// Hand-traced from the supplied mark; subtle z offsets give the strokes depth while rotating.
+// Hand-placed points define the logo; small depth offsets add motion.
 const LOGO_POINTS = {
   leftTip: { x: -2.68, y: 0.52, z: 0.02, mag: 2.25, bv: 0.05 },
   leftJoin: { x: -2.19, y: -0.12, z: -0.04, mag: 2.65, bv: 0.18 },
@@ -53,6 +53,7 @@ const LOGO_LINES = [
   ["rightJunction", "rightTip"],
 ] as const satisfies readonly (readonly [LogoPointKey, LogoPointKey])[]
 
+// Rendering and interaction settings, tuned for each device tier.
 const CONFIG = {
   seed: 20251008,
 
@@ -160,6 +161,7 @@ function kelvinToSrgb(k: number, whiteLerp: number): THREE.Color {
   return c
 }
 
+// Shader programs draw the logo, star field, and subtle background effects.
 const STAR_VERT =  `
 attribute float aFlux;
 attribute float aSeed;
@@ -484,9 +486,7 @@ function buildLogoStars(spikesOn: boolean): StarBuild {
   return { positions, flux, seeds, tints, spikes, count }
 }
 
-// Faint decorative stars scattered around the figure (own layer, no lines, dimmer than
-// any primary). The brightest among them act as secondary light sources for the figure.
-// The first `staticCount` stars ignore drag entirely; the rest drift very slightly.
+// Dim accent stars add depth; the brightest also light the logo.
 function buildDecor(count: number): StarBuild & { staticCount: number } {
   const rng = mulberry32(CONFIG.seed + 2)
   const staticCount = count - Math.max(1, Math.round(count * 0.25))
@@ -621,6 +621,7 @@ function pickTier(): Tier {
 
 type DragState = "idle" | "dragging" | "inertia"
 
+// Build the interactive scene and return a cleanup handle when WebGL is available.
 export function initHeroThree(host: HTMLElement): HeroThree | null {
   if (active) {
     if (active.host === host) return active

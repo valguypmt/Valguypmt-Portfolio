@@ -16,7 +16,6 @@ const getMessage = (language, key) => {
 
 const translate = key => getMessage(currentLanguage, key);
 
-// Header scroll effect
 const bgOverlay = document.getElementById('bgOverlay');
 const navbar = document.getElementById('navbar');
 const headerVideo = document.getElementById('headerVideo');
@@ -25,15 +24,23 @@ const faviconLink = document.getElementById('siteFavicon');
 const fixedBg = document.getElementById('fixedBg');
 const videoControl = document.querySelector('.video-control');
 const musicControl = document.querySelector('.music-control');
+const musicControlWrap = document.querySelector('.music-control-wrap');
+const musicVolume = document.querySelector('#musicVolume');
+const musicVolumeValue = document.querySelector('.music-volume-value');
+const backToTopButton = document.querySelector('.back-to-top');
+const aboutSection = document.getElementById('about-me');
 const backgroundMusic = document.getElementById('backgroundMusic');
 const backgroundMusicSource = backgroundMusic.querySelector('source');
 const headerVideoSource = headerVideo.querySelector('source');
 const musicFadeDuration = 700;
-const musicTargetVolume = 0.28;
+let musicTargetVolume = 1;
 let musicEnabled = false;
 let musicUnavailable = false;
 let musicRequestId = 0;
 let musicFadeFrame = 0;
+let musicVolumePressTimer = 0;
+let musicVolumeDismissTimer = 0;
+let suppressMusicClick = false;
 
 backgroundMusic.volume = 0;
 backgroundMusic.muted = true;
@@ -69,6 +76,7 @@ const reportMusicFailure = error => {
     console.error('Could not play background music:', error);
 };
 
+// Ease volume changes to avoid abrupt starts and stops.
 const fadeMusicTo = (targetVolume, onComplete) => {
     if (musicFadeFrame) {
         cancelAnimationFrame(musicFadeFrame);
@@ -145,8 +153,68 @@ backgroundMusic.addEventListener('error', () => {
     reportMusicFailure(backgroundMusic.error || new Error('The audio file could not be loaded.'));
 });
 
+musicVolume.addEventListener('input', () => {
+    musicTargetVolume = Number(musicVolume.value) / 100;
+    musicVolumeValue.value = `${musicVolume.value}%`;
+
+    if (musicEnabled && !backgroundMusic.paused) {
+        if (musicFadeFrame) {
+            cancelAnimationFrame(musicFadeFrame);
+            musicFadeFrame = 0;
+        }
+        backgroundMusic.volume = musicTargetVolume;
+    }
+});
+
+const openMusicVolume = () => {
+    musicControlWrap.classList.add('is-volume-open');
+    window.clearTimeout(musicVolumeDismissTimer);
+    musicVolumeDismissTimer = window.setTimeout(() => {
+        musicControlWrap.classList.remove('is-volume-open');
+    }, 5000);
+};
+
+musicControl.addEventListener('pointerdown', event => {
+    if (event.pointerType !== 'touch') {
+        return;
+    }
+
+    musicVolumePressTimer = window.setTimeout(() => {
+        openMusicVolume();
+        suppressMusicClick = true;
+        window.setTimeout(() => {
+            suppressMusicClick = false;
+        }, 1000);
+    }, 500);
+});
+
+const cancelMusicVolumePress = () => {
+    window.clearTimeout(musicVolumePressTimer);
+};
+
+musicControl.addEventListener('pointerup', cancelMusicVolumePress);
+musicControl.addEventListener('pointercancel', cancelMusicVolumePress);
+musicControl.addEventListener('pointerleave', cancelMusicVolumePress);
+
+musicControlWrap.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && musicControlWrap.classList.contains('is-volume-open')) {
+        musicControlWrap.classList.remove('is-volume-open');
+        musicControl.focus();
+    }
+});
+
+document.addEventListener('pointerdown', event => {
+    if (!musicControlWrap.contains(event.target)) {
+        musicControlWrap.classList.remove('is-volume-open');
+    }
+});
+
+// Highlight the section currently under the header.
 const navigationLinks = Array.from(navbar.querySelectorAll('.site-nav a'));
 const getPageTop = section => section.getBoundingClientRect().top + window.scrollY;
+const updateBackToTopVisibility = () => {
+    backToTopButton.hidden = window.scrollY <= getPageTop(aboutSection) + aboutSection.offsetHeight;
+};
 const navigationSections = navigationLinks
     .map(link => ({ link, section: document.getElementById(link.hash.slice(1)) }))
     .filter(item => item.section)
@@ -204,6 +272,11 @@ videoControl.addEventListener('click', () => {
 });
 
 musicControl.addEventListener('click', () => {
+    if (suppressMusicClick) {
+        suppressMusicClick = false;
+        return;
+    }
+
     if (musicEnabled) {
         stopBackgroundMusic();
     } else {
@@ -227,10 +300,17 @@ window.addEventListener('scroll', () => {
     }
 
     updateActiveNavigation();
+    updateBackToTopVisibility();
 });
 
 updateActiveNavigation();
+updateBackToTopVisibility();
 
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Reveal content on entry while respecting reduced-motion preferences.
 const revealTargets = Array.from(document.querySelectorAll('.about-me-panel, .journey-panel, .projects-panel, .contact-panel, .project-card, .section-box'));
 
 if (revealTargets.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
@@ -285,6 +365,7 @@ document.querySelectorAll('.project-card-image').forEach(image => {
     markImageLoaded(image);
 });
 
+// Fill one shared dialog with the details from the selected project card.
 projectDialogImage.addEventListener('load', () => projectDialogImage.classList.add('is-loaded'));
 document.querySelectorAll('.project-card-open').forEach(openButton => {
     openButton.addEventListener('click', () => {
@@ -376,6 +457,7 @@ const languageControl = document.querySelector('.language-control');
 const languageCurrent = languageControl.querySelector('.language-current');
 const themeControl = document.querySelector('.theme-control');
 
+// Update visible copy and project details for the selected language.
 const applyLocale = language => {
     currentLanguage = language;
     document.documentElement.lang = language;
@@ -439,9 +521,10 @@ languageControl.addEventListener('click', () => {
     localStorage.setItem('site-language', nextLanguage);
 });
 
+// Keep the wallpaper video and poster paired with the active theme.
 const getVideoPoster = (theme) => theme === 'dark'
-    ? '/images/header-dark.jpg'
-    : '/images/header-light.jpg';
+    ? '/images/header-dark.webp'
+    : '/images/header-light.webp';
 
 const applyWallpaperMode = (mode) => {
     const videoEnabled = mode === 'video';
@@ -461,7 +544,7 @@ const applyWallpaperMode = (mode) => {
 
 const applyHeaderVideoTheme = (theme) => {
     brandLogoImage.hidden = false;
-    brandLogoImage.src = `/images/logo-${theme}.jpg`;
+    brandLogoImage.src = `/images/logo-${theme}.webp`;
     faviconLink.href = brandLogoImage.src;
 
     if (headerVideo.dataset.theme === theme) {
@@ -470,7 +553,10 @@ const applyHeaderVideoTheme = (theme) => {
 
     headerVideo.dataset.theme = theme;
     headerVideo.poster = getVideoPoster(theme);
-    headerVideoSource.src = `/videos/header-${theme}.mp4`;
+    headerVideoSource.type = theme === 'dark' ? 'video/webm' : 'video/mp4';
+    headerVideoSource.src = theme === 'dark'
+        ? '/videos/header-dark.webm'
+        : '/videos/header-light.mp4';
     headerVideo.load();
 };
 
@@ -497,6 +583,7 @@ themeControl.addEventListener('click', () => {
 const heroVisual = document.querySelector('.hero-visual');
 const heroObject = heroVisual.querySelector('.hero-object');
 
+// Fall back to the CSS model when WebGL is unavailable.
 let heroScene = null;
 try {
     heroScene = initHeroThree(heroVisual);

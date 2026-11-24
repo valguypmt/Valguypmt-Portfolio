@@ -17,20 +17,20 @@ My personal portfolio website, featuring information about me, my journey, proje
 
 ```text
 .
-├── index.html
+├── index.html             # Main page
 ├── package.json
 ├── package-lock.json
-├── public/
-│   ├── images/
-│   │   └── projects/
-│   ├── videos/
-│   └── OST.mp3
+├── public/                # Media assets
+│   ├── images/  
+│   │   └── projects/   
+│   ├── videos/  
+│   └── OST.mp3 
 └── src/
     ├── index.css
     ├── index.js
     ├── locale/
-    │   ├── en.json
-    │   └── vi.json
+    │   ├── en.json        # English translations
+    │   └── vi.json        # Vietnamese translations
     └── three/
-        └── heroScene.ts
+        └── heroScene.ts   # Hero 3d logo
 ```
