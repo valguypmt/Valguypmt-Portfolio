@@ -26,13 +26,11 @@ My personal portfolio website, featuring information about me, my journey, proje
 │   ├── videos/
 │   └── OST.mp3
 ├── src/
-│   ├── index.css
-│   ├── index.js
-│   ├── locale/
-│   │   ├── en.json
-│   │   └── vi.json
-│   └── three/
-│       └── heroScene.ts
-├── LICENSE.md
-└── README.md
+    ├── index.css
+    ├── index.js
+    ├── locale/
+    │   ├── en.json
+    │   └── vi.json
+    └── three/
+        └── heroScene.ts
 ```
