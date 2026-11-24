@@ -25,7 +25,7 @@ My personal portfolio website, featuring information about me, my journey, proje
 │   │   └── projects/
 │   ├── videos/
 │   └── OST.mp3
-├── src/
+└── src/
     ├── index.css
     ├── index.js
     ├── locale/
