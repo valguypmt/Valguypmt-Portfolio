@@ -56,7 +56,7 @@
       "nameLabel": "Tên thật",
       "nameValue": "Phạm Minh Thông",
       "ageLabel": "Tuổi",
-      "ageValue": "18 tuổi",
+      "ageValue": "18",
       "majorLabel": "Chuyên ngành",
       "majorValue": "An toàn thông tin",
       "educationLabel": "Học vấn",
@@ -64,7 +64,7 @@
       "locationLabel": "Địa điểm",
       "locationValue": "Cần Thơ, Việt Nam",
       "interestsLabel": "Sở thích",
-      "interestsValue": "InfoSec · Web · Sysadmin"
+      "interestsValue": "InfoSec · Full-stack · Sysadmin"
     }
   },
   "journey": {
@@ -87,7 +87,7 @@
       {
         "year": "2026",
         "title": "Đại học",
-        "description": "Trường Công nghệ Thông tin - Đại học Cần Thơ"
+        "description": "Trường Công nghệ Thông tin & Truyền thông - Đại học Cần Thơ"
       }
     ]
   },

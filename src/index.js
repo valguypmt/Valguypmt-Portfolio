@@ -391,6 +391,7 @@ document.querySelectorAll('.project-card-open').forEach(openButton => {
         }
         markImageLoaded(projectDialogImage);
         projectDialog.showModal();
+        projectDialog.append(customCursor);
     });
 });
 
@@ -606,5 +607,52 @@ if (heroScene) {
 
     heroVisual.addEventListener('pointerleave', () => {
         heroObject.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+}
+
+const customCursor = document.querySelector('.custom-cursor');
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+projectDialog.addEventListener('close', () => {
+    document.body.append(customCursor);
+});
+
+if (finePointer.matches) {
+    document.body.classList.add('has-custom-cursor');
+
+    document.addEventListener('pointermove', event => {
+        if (event.pointerType !== 'mouse' && event.pointerType !== 'pen') {
+            return;
+        }
+
+        const target = event.target instanceof Element ? event.target : null;
+        const isEditing = target?.closest('input:not([type="range"]), textarea, select, [contenteditable="true"]');
+        const isInteractive = target?.closest('a, button, [role="button"], summary, input[type="range"]');
+        const isContactTextField = Boolean(target?.closest('.contact-field input, .contact-field textarea'));
+
+        customCursor.style.setProperty('--cursor-x', `${event.clientX}px`);
+        customCursor.style.setProperty('--cursor-y', `${event.clientY}px`);
+        customCursor.style.setProperty('--ring-x', `${event.clientX}px`);
+        customCursor.style.setProperty('--ring-y', `${event.clientY}px`);
+
+        customCursor.classList.toggle('is-visible', !isEditing || isContactTextField);
+        customCursor.classList.toggle('is-interactive', (Boolean(isInteractive) || Boolean(target?.closest('.contact-field'))) && !isEditing);
+        customCursor.classList.toggle('is-text-field', isContactTextField);
+    });
+
+    document.addEventListener('pointerdown', event => {
+        if (event.pointerType === 'mouse' || event.pointerType === 'pen') {
+            customCursor.classList.add('is-clicking');
+        }
+    });
+
+    document.addEventListener('pointerup', () => {
+        customCursor.classList.remove('is-clicking');
+    });
+
+    document.addEventListener('pointerout', event => {
+        if (!event.relatedTarget) {
+            customCursor.classList.remove('is-visible', 'is-interactive', 'is-clicking');
+        }
     });
 }

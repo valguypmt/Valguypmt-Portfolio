@@ -1161,13 +1161,17 @@ body.light-theme .contact-social-icon {
 .project-dialog {
   position: fixed;
   inset: 0;
-  width: min(820px, calc(100% - 32px));
-  max-width: 820px;
-  max-height: calc(100vh - 24px);
-  max-height: calc(100dvh - 24px);
-  margin: auto;
-  padding: 0;
-  overflow-y: auto;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 16px;
+  overflow: visible;
   border: 0;
   background: transparent;
   color: var(--text-white);
@@ -1181,7 +1185,11 @@ body.light-theme .contact-social-icon {
 
 .project-dialog-surface {
   position: relative;
-  overflow: hidden;
+  width: min(820px, 100%);
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  overflow-x: hidden;
+  overflow-y: auto;
   border: 1px solid var(--border-dark);
   border-radius: 20px;
   background-color: var(--card-bg);
@@ -1352,6 +1360,11 @@ body.light-theme .contact-social-icon {
 }
 
 .project-dialog[open] {
+  display: flex;
+  animation: none;
+}
+
+.project-dialog[open] .project-dialog-surface {
   animation: project-dialog-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
@@ -2951,7 +2964,7 @@ body:not(.light-theme) .footer-divider {
     transition: none;
   }
 
-  .project-dialog[open] {
+  .project-dialog[open] .project-dialog-surface {
     animation: none;
   }
 }
@@ -2979,5 +2992,113 @@ body:not(.light-theme) .footer-divider {
 
   .projects-panel {
     padding: 24px 20px;
+  }
+}
+
+.custom-cursor {
+  display: none;
+}
+
+body:not(.light-theme) {
+  --custom-cursor-color: #ffffff;
+  --custom-cursor-hover-fill: rgba(255, 255, 255, 0.15);
+  --custom-cursor-click-fill: rgba(255, 255, 255, 0.4);
+}
+
+body.light-theme {
+  --custom-cursor-color: #111111;
+  --custom-cursor-hover-fill: rgba(0, 0, 0, 0.15);
+  --custom-cursor-click-fill: rgba(0, 0, 0, 0.4);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor * {
+    cursor: none !important;
+  }
+
+  body.has-custom-cursor :is(input:not([type="range"]), textarea, [contenteditable="true"]) {
+    cursor: text !important;
+  }
+
+  body.has-custom-cursor .contact-field input,
+  body.has-custom-cursor .contact-field textarea {
+    cursor: none !important;
+  }
+
+  body.has-custom-cursor select {
+    cursor: auto !important;
+  }
+
+  .custom-cursor {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 140ms ease;
+  }
+
+  .custom-cursor.is-visible {
+    opacity: 1;
+  }
+
+  .custom-cursor-ring,
+  .custom-cursor-dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .custom-cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--custom-cursor-color);
+    transform: translate3d(var(--ring-x, -100px), var(--ring-y, -100px), 0) translate(-50%, -50%);
+    transition: transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1), width 250ms ease, height 250ms ease, background-color 250ms ease, border-color 250ms ease;
+  }
+
+  .custom-cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--custom-cursor-color);
+    transform: translate3d(var(--cursor-x, -100px), var(--cursor-y, -100px), 0) translate(-50%, -50%);
+  }
+
+  .custom-cursor.is-interactive .custom-cursor-ring {
+    width: 64px;
+    height: 64px;
+    background: var(--custom-cursor-hover-fill);
+  }
+
+  .custom-cursor.is-clicking .custom-cursor-ring {
+    width: 24px;
+    height: 24px;
+    background: var(--custom-cursor-click-fill);
+  }
+
+  .custom-cursor.is-text-field .custom-cursor-ring {
+    width: 0;
+    height: 0;
+    border-width: 0;
+    background: transparent;
+    opacity: 0;
+  }
+
+  .custom-cursor.is-text-field .custom-cursor-dot {
+    width: 2px;
+    height: 18px;
+    border-radius: 2px;
+    transition: width 150ms ease, height 150ms ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor,
+  .custom-cursor-ring {
+    transition: none;
   }
 }

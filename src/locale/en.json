@@ -43,13 +43,13 @@
     "greeting": "Hi, I’m",
     "name": "Valguy !",
     "tagline": "Tech Learner | System Explorer | Code Builder",
-    "explore": "Explore my work",
+    "explore": "Explore my projects",
     "contact": "Get in touch!"
   },
   "about": {
     "eyebrow": "A LITTLE ABOUT ME",
     "titleFirst": "A Life Drifter",
-    "titleSecond": "A Codes Builder",
+    "titleSecond": "A Code Builder",
     "copy": "My knowledge and skills are limited, but I am always eager to learn and explore new things. I enjoy solving problems, breaking systems, and learning from my mistakes. My goal is to become a skilled professional and contribute to the development of the technology industry!",
     "factsLabel": "Personal details",
     "facts": {
@@ -64,7 +64,7 @@
       "locationLabel": "Location",
       "locationValue": "Can Tho, Vietnam",
       "interestsLabel": "Interests",
-      "interestsValue": "Infosec · Web · Sysadmin"
+      "interestsValue": "Infosec · Full-stack · Sysadmin"
     }
   },
   "journey": {
@@ -87,7 +87,7 @@
       {
         "year": "2026",
         "title": "University",
-        "description": "College of Information Technology - Can Tho University"
+        "description": "College of Information & Communication Technology - Can Tho University"
       }
     ]
   },
