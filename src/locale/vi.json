@@ -104,7 +104,7 @@
     "viewDeployment": "Xem trang trực tuyến",
     "items": {
       "sullivanserver": {
-        "dialogTitle": "SullivanServer",
+        "dialogTitle": "Sullivan Server Website",
         "cardTitle": "Sullivan Server Website",
         "description": "Complete web portal and ecosystem built for our simple Minecraft community servers.",
         "technologies": ["HTML5", "CSS3", "JavaScript"]
@@ -116,7 +116,7 @@
         "technologies": ["HTML5", "CSS3", "JavaScript", "Supabase"]
       },
       "portfolio": {
-        "dialogTitle": "Valguypmt Portfolio",
+        "dialogTitle": "My Personal Portfolio",
         "cardTitle": "My Personal Portfolio",
         "description": "My personal portfolio website, featuring information about me, my journey, projects, and ways to get in touch!",
         "technologies": ["HTML5", "CSS3", "JavaScript", "Vite", "Three.js"]
